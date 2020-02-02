@@ -1,5 +1,8 @@
 db.createUser({
     "user": "kart",
     "pwd": "oon",
-    "roles": ["readWrite", "dbAdmin"]
+    "roles": [{
+        "role": "userAdminAnyDatabase",
+        "db": "admin"
+    }, "readWriteAnyDatabase"]
 });

@@ -22,7 +22,10 @@ Create a file named **init-mongo.js** or whatever as long as it’s a Javascript
     db.createUser({
         "user": "kart",
         "pwd": "oon",
-        "roles": ["readWrite", "dbAdmin"]
+        "roles": [{
+            "role": "userAdminAnyDatabase",
+            "db": "admin"
+        }, "readWriteAnyDatabase"]
     });
 
 #### Write docker-compose file

@@ -68,5 +68,5 @@ or
     mongo "mongodb://YourUsername:YourPasswordHere@127.0.0.1:27017/your-database-name"
 
 #### References
-
-- [Compose file version 3 reference](https://docs.docker.com/compose/compose-file/)
+- [Enable Access Control - MongoDB Manual](https://docs.mongodb.com/manual/tutorial/enable-authentication/)
+- [Compose file version 3 reference | Docker Documentation](https://docs.docker.com/compose/compose-file/)

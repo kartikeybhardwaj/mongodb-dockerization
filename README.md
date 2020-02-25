@@ -70,10 +70,6 @@ or
 
     mongo "mongodb://YourUsername:YourPasswordHere@127.0.0.1:27017/your-database-name"
 
-#### Notes:
-
-- If you look at the `mongod` logs closely, you'll find `failed to load: /docker-entrypoint-initdb.d/init-mongo.js`, this is because the user you're trying to add using `init-mongo.js` has already been added by `docker-entrypoint.sh`. `docker-entrypoint.sh` reads container's environment variables and sets `--auth` flag accordingly. Thus, you can comment out `- ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro` from volumes of container as specified in docker-compose file.
-
 #### References
 - [Enable Access Control - MongoDB Manual](https://docs.mongodb.com/manual/tutorial/enable-authentication/)
 - [Compose file version 3 reference | Docker Documentation](https://docs.docker.com/compose/compose-file/)

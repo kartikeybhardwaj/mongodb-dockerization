@@ -1,7 +1,7 @@
 # MongoDB Dockerization
 
-1. MongoDB setup with db authentication
-2. MongoDB setup with db authentication using replica sets
+1. [MongoDB setup with db authentication](https://github.com/kartikeybhardwaj/mongodb-dockerization#1-mongodb-setup-with-db-authentication)
+2. [MongoDB setup with db authentication using replica sets](https://github.com/kartikeybhardwaj/mongodb-dockerization#2-mongodb-setup-with-db-authentication-using-replica-sets)
 
 ## 1. MongoDB setup with db authentication
 

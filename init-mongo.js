@@ -1,8 +1,12 @@
+db.auth("admin-user", "admin-password");
+
+db = db.getSiblingDB("appdb");
+
 db.createUser({
-    "user": "kart",
-    "pwd": "oon",
-    "roles": [{
-        "role": "userAdminAnyDatabase",
-        "db": "admin"
-    }, "readWriteAnyDatabase"]
+    user: "app-user",
+    pwd: "app-password",
+    roles: [{
+        role: "dbOwner",
+        db: "appdb",
+    }],
 });

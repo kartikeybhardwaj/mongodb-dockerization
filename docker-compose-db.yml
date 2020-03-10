@@ -1,0 +1,61 @@
+version: "3.7"
+
+services:
+
+  mongo_test_1:
+      image: mongo
+      container_name: mongo_test_1
+      restart: unless-stopped
+      environment:
+        MONGO_INITDB_DATABASE: admin
+        MONGO_INITDB_ROOT_USERNAME: admin-user
+        MONGO_INITDB_ROOT_PASSWORD: admin-password
+      command: "--replSet rs0 --keyFile /opt/keyfile --bind_ip_all"
+      volumes:
+        - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+        - ./mongo-volume-1:/data/db
+        - ./keyfile:/opt/keyfile:ro
+      ports:
+        - 27011:27017
+      networks:
+        - ntw-db-test
+  
+  mongo_test_2:
+    image: mongo
+    container_name: mongo_test_2
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: admin
+      MONGO_INITDB_ROOT_USERNAME: admin-user
+      MONGO_INITDB_ROOT_PASSWORD: admin-password
+    command: "--replSet rs0 --keyFile /opt/keyfile --bind_ip_all"
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo-volume-2:/data/db
+      - ./keyfile:/opt/keyfile:ro
+    ports:
+      - 27012:27017
+    networks:
+      - ntw-db-test
+
+  mongo_test_3:
+    image: mongo
+    container_name: mongo_test_3
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: admin
+      MONGO_INITDB_ROOT_USERNAME: admin-user
+      MONGO_INITDB_ROOT_PASSWORD: admin-password
+    command: "--replSet rs0 --keyFile /opt/keyfile --bind_ip_all"
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo-volume-3:/data/db
+      - ./keyfile:/opt/keyfile:ro
+    ports:
+      - 27013:27017
+    networks:
+      - ntw-db-test
+
+networks:
+  ntw-db-test:
+    driver: bridge

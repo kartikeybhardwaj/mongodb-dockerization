@@ -2,15 +2,16 @@ version: "3.7"
 
 services:
 
-    mongo_test_service:
-        image: "mongo"
-        container_name: "mongo_test_container"
+    mongo_test:
+        image: mongo
+        container_name: mongo_test
+        restart: unless-stopped
         environment:
-            MONGO_INITDB_DATABASE: library
-            MONGO_INITDB_ROOT_USERNAME: kart
-            MONGO_INITDB_ROOT_PASSWORD: oon
+            MONGO_INITDB_DATABASE: admin
+            MONGO_INITDB_ROOT_USERNAME: admin-user
+            MONGO_INITDB_ROOT_PASSWORD: admin-password
         volumes:
             - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
             - ./mongo-volume:/data/db
         ports:
-            - 27017-27019:27017-27019
+            - 27017:27017

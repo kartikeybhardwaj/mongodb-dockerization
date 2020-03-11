@@ -121,8 +121,9 @@ You can generate a keyfile using any method you choose. For example, the followi
     chmod 400 keyfile
 
 Change owner of keyfile to 999 (for linux machines):
+keyfile will need to be owned by the mongodb user in the container (uid=999(mongodb) gid=999(mongodb)).
 
-    sudo chown 999 keyfile
+    sudo chown 999:999 keyfile
 
 #### Create a Javascript file to add a user in database
 

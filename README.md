@@ -120,6 +120,10 @@ You can generate a keyfile using any method you choose. For example, the followi
     openssl rand -base64 756 > keyfile
     chmod 400 keyfile
 
+Change owner of keyfile to 999 (for linux machines):
+
+    sudo chown 999 keyfile
+
 #### Create a Javascript file to add a user in database
 
 Create a file named **init-mongo.js** or whatever as long as it’s a Javascript file

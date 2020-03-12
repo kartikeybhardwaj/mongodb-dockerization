@@ -155,7 +155,6 @@ Create a file named **docker-compose-db.yml** for setup your docker-compose stac
 ##### Explanation of docker-compose file
 - `version` is a version of docker-compose file format, you can change to the latest version.
 - `mongo_test_1`, `mongo_test_2` and `mongo_test_3` are service names, you can change the name whatever you want.
-- image must be **mongo**, because you want to create a container from mongo image.
 - `container_name` is a name for your container.
 - `environment` is a variables that will be used on the mongo container.
 - `MONGO_INITDB_DATABASE` is database name at the point of initialization of database, should be **admin**.
@@ -166,7 +165,7 @@ Create a file named **docker-compose-db.yml** for setup your docker-compose stac
 NOTE: You can also create a `mongod.conf` and mount it as volume to container's `/etc/mongod.conf` if you do not wish to user `command`.
 - `volumes` to define a file/folder that you want to use for the container.
 - `./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro` means you want to copy **init-mongo.js** to **/docker-entrypoint-initdb.d/** as a **read only** file. **/docker-entrypoint-initdb.d** is a folder that already created inside the mongo container used for initiating database, so we copy our script to that folder.
-- `./mongo-volume-1:/data/db` means you want to set data on container persist on your local folder named **mongo-volume-1**. **/data/db/** is a folder that already created inside the mongo container.
+- `./mongo-volume-1:/data/db` means you want to set data on container persist on your local folder named **mongo-volume-1**. **/data/db/** is a folder that is already created inside the mongo container.
 - `./keyfile:/opt/keyfile:ro` means you want to copy **keyfile** to **/opt/** as a **read only** file.
 - `ports` is to define which ports you want to expose and define, in this case we're using default mongoDB port **27017** and exposing it to host machine as **27011** for service 1, **27012** for service 2 and **27013** for service 3.
 - `ntw-db-test` is used as a bridge to connect all the three services in a network.
